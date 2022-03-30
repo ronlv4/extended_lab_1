@@ -32,6 +32,7 @@ int main(int argc, char **argv) {
             encryptionAmount = HexToInt(argv[i][2]);
             if (encryptionAmount == -1)
             {
+                fprintf(output, "error: invalid hexadecimal value");
                 exit(1);
             }
             if (argv[i][0] == '-')
