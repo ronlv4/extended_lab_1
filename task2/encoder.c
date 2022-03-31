@@ -50,6 +50,30 @@ int main(int argc, char **argv)
     return 0;
 }
 
+void ReadFromInputASCII(FILE *input, FILE *output)
+{
+    int currentLetterASCII = 0;
+    char c;
+    while ((c = fgetc(input)) != EOF)
+    {
+        if (c != '\n')
+        {
+            if (c != ' ')
+            {
+                currentLetterASCII += c;
+            }
+            else
+            {
+                fprintf(output, "%c", currentLetterASCII);
+            }
+        }
+        else
+        {
+            fprintf(output, "%c", c);
+        }
+    }
+}
+
 void encoder(FILE *input, FILE *output, int encryption)
 {
     char c;
